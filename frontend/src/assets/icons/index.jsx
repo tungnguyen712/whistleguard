@@ -78,37 +78,22 @@ export const StorageIcon = ({ size = 24, className="" }) => (
     </svg>
 )
 
-export const BurgerIcon = ({ size = 24, className = "" }) => (
-  <svg
-    height={size}
-    width={size}
-    className={className}
-    version="1.1"
-    id="Layer_1"
-    viewBox="0 0 320 320"
-    fill="currentColor"
-  >
-    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
-    <g id="SVGRepo_iconCarrier">
-      <g id="XMLID_813_">
-        <path id="XMLID_814_" style={{ fill: "currentColor" }} d="M300,159.355v-20C300,84.483,255.518,40,200.645,40h-81.29 C64.482,40,20,84.483,20,139.355v20H300z"></path>
-        <path id="XMLID_815_" style={{ fill: "currentColor" }} d="M160,40h-40.645C64.482,40,20,84.483,20,139.355v20h140V40z"></path>
-        <circle id="XMLID_816_" style={{ fill: "currentColor" }} cx="70" cy="110" r="10"></circle>
-        <circle id="XMLID_817_" style={{ fill: "currentColor" }} cx="120" cy="80" r="10"></circle>
-        <circle id="XMLID_818_" style={{ fill: "currentColor" }} cx="250" cy="110" r="10"></circle>
-        <circle id="XMLID_819_" style={{ fill: "currentColor" }} cx="200" cy="80" r="10"></circle>
-        <circle id="XMLID_820_" style={{ fill: "currentColor" }} cx="160" cy="110" r="10"></circle>
-        <path id="XMLID_821_" style={{ fill: "currentColor" }} d="M160,100c-5.523,0-10,4.477-10,10s4.477,10,10,10"></path>
-        <path id="XMLID_822_" style={{ fill: "currentColor" }} d="M270,170H50c-16.568,0-30,13.432-30,30s13.432,30,30,30h220 c16.568,0,30-13.432,30-30S286.568,170,270,170z"></path>
-        <path id="XMLID_823_" style={{ fill: "currentColor" }} d="M160,170H50c-16.568,0-30,13.432-30,30s13.432,30,30,30h110V170z"></path>
-        <path id="XMLID_824_" style={{ fill: "currentColor" }} d="M320,250c0,16.568-13.432,30-30,30H30c-16.568,0-30-13.432-30-30l0,0 c0-16.568,13.432-30,30-30h260C306.568,220,320,233.432,320,250L320,250z"></path>
-        <path id="XMLID_825_" style={{ fill: "currentColor" }} d="M160,220H30c-16.568,0-30,13.432-30,30s13.432,30,30,30h130V220z"></path>
-        <polygon id="XMLID_826_" style={{ fill: "currentColor" }} points="60,180 160,170 260,180 160,250 "></polygon>
-        <polygon id="XMLID_827_" style={{ fill: "currentColor" }} points="60,180 160,170 160,250 "></polygon>
-        <path id="XMLID_828_" style={{ fill: "currentColor" }} d="M320,165c0,8.284-6.716,15-15,15H15c-8.284,0-15-6.716-15-15l0,0 c0-8.284,6.716-15,15-15h290C313.284,150,320,156.716,320,165L320,165z"></path>
-        <path id="XMLID_829_" style={{ fill: "currentColor" }} d="M160,150H15c-8.284,0-15,6.716-15,15s6.716,15,15,15h145V150z"></path>
-      </g>
-    </g>
-  </svg>
-);
+export const FileIcon = ({ size = 24 }) => (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width={size} height={size}>
+        <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+        <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+        <g id="SVGRepo_iconCarrier"> 
+            <path d="M18 10L13 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"></path> 
+            <path d="M22 11.7979C22 9.16554 22 7.84935 21.2305 6.99383C21.1598 6.91514 21.0849 6.84024 21.0062 6.76946C20.1506 6 18.8345 6 16.2021 6H15.8284C14.6747 6 14.0979 6 13.5604 5.84678C13.2651 5.7626 12.9804 5.64471 12.7121 5.49543C12.2237 5.22367 11.8158 4.81578 11 4L10.4497 3.44975C10.1763 3.17633 10.0396 3.03961 9.89594 2.92051C9.27652 2.40704 8.51665 2.09229 7.71557 2.01738C7.52976 2 7.33642 2 6.94975 2C6.06722 2 5.62595 2 5.25839 2.06935C3.64031 2.37464 2.37464 3.64031 2.06935 5.25839C2 5.62595 2 6.06722 2 6.94975M21.9913 16C21.9554 18.4796 21.7715 19.8853 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"></path> 
+        </g>
+    </svg>
+)
+
+export const SearchIcon = ({ size = 20, className="" }) => (
+    <svg viewBox="0 0 24 24" width={size} height={size} className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+        <g id="SVGRepo_iconCarrier"> 
+            <path d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path> 
+        </g>
+    </svg>
+)

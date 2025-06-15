@@ -1,4 +1,5 @@
 import Sidebar from "./Sidebar";
+import "./styles/SubmissionForm.css";
 
 const SubmissionForm = () => {
   return (
@@ -7,7 +8,7 @@ const SubmissionForm = () => {
         <Sidebar />
         <div className="submission-form-content"></div>
       </div>
-      <div>lorem dipsum</div>
+      {/* <div>lorem dipsum</div> */}
     </>
 
   );

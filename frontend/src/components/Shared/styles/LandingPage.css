@@ -131,14 +131,16 @@
   border: 2px solid lightgray;
   cursor: pointer;
   transition: all 0.3s ease;
+  
 }
 
 .button .circle {
   width: 1rem;
   height: 1rem;
-  border-radius: 50%;
+  border-radius: 45%;
   border: 2px solid currentColor;
   background-color: transparent;
+  position: relative;
 }
 
 .button.primary {
@@ -164,6 +166,18 @@
 .button:hover {
   background-color: #4045EF;
   color: white;
+}
+
+.button:hover .circle::after {
+  content: ""; /* Creates the smaller circle */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.5rem; /* Smaller circle size */
+  height: 0.5rem; /* Smaller circle size */
+  border-radius: 50%;
+  background-color: white; /* White filled circle */
 }
 
 .primary {

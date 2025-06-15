@@ -7,9 +7,9 @@
 .submission-form-content {
   flex: 1;
   padding: 2rem;
-  background-color: red;
+  /* background-color: red; */
   z-index: 0;
-  /* margin-left: 300px; */
-  /* min-height: 100vh; */
-  /* width: calc(100% - 300px); */
+  margin-left: 370px;
+  /* min-width: 150vh; */
+
 }

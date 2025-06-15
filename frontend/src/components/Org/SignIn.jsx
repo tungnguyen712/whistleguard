@@ -1,11 +1,15 @@
-// import { useNavigate } from 'react-router-dom';
-import './SignIn.css';
+import { useNavigate } from 'react-router-dom';
+import './styles/SignIn.css';
 import BackgroundImage from "../../assets/images/bg.png";
 import GoogleLogo from "../../assets/images/google-logo.png";
 import { MailIcon, LockIcon } from "../../assets/icons";
 
 const SignIn = () => {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
+    const handleSignIn = (e) => {
+        e.preventDefault();
+        navigate('/org/dashboard');
+    }
 
     // const handleSignUp = () => {
     //     navigate('/org/signup');
@@ -50,9 +54,9 @@ const SignIn = () => {
 
                         {/* (nice to have) use localStorage for Remember Me features */}
 
-                        <button type="submit" className="signin-button">Sign in</button>
+                        <button type="submit" className="signin-button" onClick={handleSignIn}>Sign in</button>
 
-                          <div className="google-signin-container">
+                        <div className="google-signin-container">
                             <span className="divider">
                                 <hr className="line" /> or <hr className="line" />
                             </span>
