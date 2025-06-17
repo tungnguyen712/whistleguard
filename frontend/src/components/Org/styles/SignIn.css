@@ -17,7 +17,7 @@ html, body {
   display: flex;
   justify-content: center;
   position: relative;
-  margin-left: 40rem;
+  margin-left: 28rem;
 }
 
 .signin-left { 
@@ -94,7 +94,7 @@ html, body {
 
 .signin-right h1 {
     font-size: 2.5rem;
-    margin-top: 14rem;
+    margin-top: 8rem;
     color: #170F49;
 }   
 

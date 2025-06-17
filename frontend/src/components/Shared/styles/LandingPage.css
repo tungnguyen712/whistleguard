@@ -7,11 +7,11 @@
 }
 
 .landing-right {
-  width: 120%;
+  width: 100%;
   display: flex;
   justify-content: center;
   position: relative;
-  margin-left: 40rem;
+  margin-left: 30rem;
 }
 
 .landing-left { 
@@ -174,8 +174,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 0.5rem; /* Smaller circle size */
-  height: 0.5rem; /* Smaller circle size */
+  width: 0.7rem; /* Smaller circle size */
+  height: 0.7rem; /* Smaller circle size */
   border-radius: 50%;
   background-color: white; /* White filled circle */
 }
