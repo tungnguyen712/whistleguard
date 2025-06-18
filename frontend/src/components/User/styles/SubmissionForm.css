@@ -1,15 +1,12 @@
 .submission-form-container {
-  /* display: flex; */
-  height: 100vh;
-  /* margin-left: 300px; */
+  display: flex;
+  min-height: 100vh;
 }
 
 .submission-form-content {
   flex: 1;
+  margin-left: 320px;
   padding: 2rem;
-  /* background-color: red; */
-  z-index: 0;
-  margin-left: 370px;
-  /* min-width: 150vh; */
-
+  min-height: 100vh;
+  background-color: #f8f9fa;
 }
