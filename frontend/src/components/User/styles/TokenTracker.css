@@ -1,0 +1,89 @@
+.token-tracker-page {
+  display: flex;
+  min-height: 100vh;
+  background: #fafbff;
+}
+
+.token-tracker-modal-content {
+  min-width: 300px;
+  max-width: 500px;
+}
+
+.token-tracker-title {
+  font-weight: 700;
+  font-size: 1.75rem;
+  margin-bottom: 0;
+  margin-top: -1rem;;
+  margin-left: 0.5rem;
+}
+
+.token-tracker-desc {
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  margin-left: 0.5rem;
+}
+
+.token-tracker-label {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.7rem;
+  max-width: 100rem;
+  margin-left: 1rem;
+}
+
+.token-tracker-input {
+  width: 110%;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  background: #fafbff;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.token-tracker-input:focus {
+  background: #fff;
+}
+
+.token-tracker-submit-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #6A4DF4;
+  border-radius: 20px;
+  background-color: #ffffff;
+  color: #6A4DF4;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.token-tracker-submit-btn:hover {
+  background-color: #6A4DF4;
+  color: #ffffff;
+}
+
+.token-tracker-cancel-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #6A4DF4;
+  border-radius: 20px;
+  background-color: #fff;
+  color: #6A4DF4;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.token-tracker-cancel-btn:hover {
+  background-color: #f3f0ff;
+  color: #6246ea;
+}
+
+.token-tracker-action-buttons {
+    display: flex;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}

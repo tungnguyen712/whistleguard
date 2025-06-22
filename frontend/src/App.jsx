@@ -3,9 +3,11 @@ import { useAuth } from "react-oidc-context";
 import LandingPage from './components/Shared/LandingPage';
 import SignIn from "./components/Org/Signin";
 import SubmissionForm from "./components/User/SubmissionForm";
+import TokenTracker from "./components/User/TokenTracker";
 import Dashboard from "./components/Org/Dashboard";
 import Sidebar from "./components/User/Sidebar";
 import "./App.css";
+// import { Token } from "aws-sdk";
 
 function App() {
   const auth = useAuth();
@@ -37,6 +39,15 @@ function App() {
           <div className="page-with-sidebar">
             <Sidebar />
             <SubmissionForm />
+          </div>
+        }
+      />
+      <Route 
+        path="/user/report-status"
+        element={
+          <div className="page-with-sidebar">
+            <Sidebar />
+            <TokenTracker isShow={true} onClose={() => { window.history.back() }} />
           </div>
         }
       />

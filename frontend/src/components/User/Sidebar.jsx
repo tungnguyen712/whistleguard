@@ -23,13 +23,6 @@ const Sidebar = () => {
             {/* <span className="sidebar-arrow">›</span> */}
           </a>
         </li>
-        <li>
-          <a href="/user/token-storage" className="sidebar-item">
-            <StorageIcon alt="Token Icon" className="sidebar-icon" />
-            Token Storage
-            {/* <span className="sidebar-arrow">›</span> */}
-          </a>
-        </li>
       </ul>
     </div>
   );
