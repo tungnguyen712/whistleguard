@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from "react-oidc-context";
 import './styles/SignIn.css';
 import BackgroundImage from "../../assets/images/bg.png";
 import GoogleLogo from "../../assets/images/google-logo.png";
@@ -8,7 +9,13 @@ const SignIn = () => {
     const navigate = useNavigate();
     const handleSignIn = (e) => {
         e.preventDefault();
+        localStorage.setItem("bypassAuth", true);
         navigate('/org/dashboard');
+    }
+
+    const auth = useAuth();
+    const handleGoogleSignIn = () => {
+        auth.signinRedirect();
     }
 
     // const handleSignUp = () => {
@@ -60,9 +67,9 @@ const SignIn = () => {
                             <span className="divider">
                                 <hr className="line" /> or <hr className="line" />
                             </span>
-                            <button type="button" className="google-signin-button">
-                            <img src={GoogleLogo} alt="Google Logo" className="google-logo" />
-                            Sign in with Google
+                            <button type="button" className="google-signin-button" onClick={handleGoogleSignIn}>
+                                <img src={GoogleLogo} alt="Google Logo" className="google-logo" />
+                                Sign in with Google
                             </button>
                         </div>
                     </form>

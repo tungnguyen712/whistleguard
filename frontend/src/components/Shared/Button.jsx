@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function Button({ type = "button", content, className, disabled = false, icon, iconPosition = "right", isSubmitting = false, handleEvent = () => {} }) {
+export function Button({ type = "button", content, className, disabled = false, icon, iconPosition = "right", isSubmitting = false, handleEvent = () => {} }) {
     return (
         <button type={type} className={`disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none ${className}`} onClick={handleEvent} disabled={disabled}>
             {isSubmitting ? (
@@ -33,4 +33,3 @@ Button.propTypes = {
     handleEvent: PropTypes.func,
 };
 
-export default Button;

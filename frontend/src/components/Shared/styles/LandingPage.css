@@ -7,18 +7,18 @@
 }
 
 .landing-right {
-  width: 100%;
+  width: 150%;
   display: flex;
   justify-content: center;
   position: relative;
-  margin-left: 30rem;
+  margin-left: 15rem;
 }
 
 .landing-left { 
-    width: 70%;
+    width: 100%;
     display: flex;
     margin-top: 20px;
-    left: 10rem;
+    left: -8rem;
     color: white;
     flex-direction: column;
     padding: 2rem;
@@ -76,7 +76,7 @@
 
 .landing-content-box {
   text-align: left; 
-  max-width: 500px; 
+  max-width: 100vh; 
   margin: 0 auto;
   display: flex;
   flex-direction: column; 
@@ -84,34 +84,34 @@
 }
 
 .landing-right h1 {
-    font-size: 2.5rem;
-    margin-top: 14rem;
-    color: #170F49;
+  font-size: 2.5rem;
+  margin-top: 14rem;
+  color: #170F49;
 }   
 
 .landing-right h2 {
-    font-size: 1.5rem;
-    color: #170F49;
-    font-weight: bold;
+  font-size: 1.5rem;
+  color: #170F49;
+  font-weight: bold;
 }
 .landing-right p {
-    font-size: 1.125rem;
-    margin-top: -2rem;
-    margin-bottom: 4rem;
-    color: #6F6C90;
+  font-size: 1.125rem;
+  margin-top: -2rem;
+  margin-bottom: 4rem;
+  color: #6F6C90;
 }
 
 .landing-subtext {
-    font-weight: 500;
-    margin: 2rem 0;
-    /* font-size: 1.25rem; */
-    margin-top: 0;
+  font-weight: 500;
+  margin: 2rem 0;
+  /* font-size: 1.25rem; */
+  margin-top: 0;
 }
 .landing-caption {
-    font-size: 1.25rem;
-    margin-top: -2.5rem;
-    margin-bottom: 3rem;
-    color: #6F6C90;
+  font-size: 1.25rem;
+  margin-top: -2.5rem;
+  margin-bottom: 3rem;
+  color: #6F6C90;
 }
 
 .landing-button-group {

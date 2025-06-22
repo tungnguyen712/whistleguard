@@ -5,8 +5,36 @@
 
 .submission-form-content {
   flex: 1;
-  margin-left: 320px;
+  /* margin-left: -57rem; */
   padding: 2rem;
-  min-height: 100vh;
-  background-color: #f8f9fa;
+  /* min-height: 100vh;
+  min-width: 250vh; */
+  background-color: #FAFBFF;
+}
+
+.submission-form-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #333333;
+  margin-left: 2rem;
+  margin-top: 2.5rem;
+}
+
+.multi-steps-form {
+  width: 100%;
+  max-width: 550px;
+  background-color: transparent;
+  box-shadow: none;
+  padding: 2rem;
+}
+
+.multistepform-close-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  color: #6F6C90;
+  cursor: pointer;
+  z-index: 10;
 }

@@ -1,0 +1,104 @@
+.step1-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  background: transparentx;
+  display: flex;
+  flex-direction: column;
+  /* gap: 1.5rem; */
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0;
+}
+
+.step1-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: black;
+  margin-bottom: -1rem;
+  margin-top: -2rem;
+  margin-left: -2.5rem;
+}
+
+.step1-desc {
+  color: #6F6C90;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  margin-left: -2.5rem;
+}
+
+.step1-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.step1-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #232360;
+  margin-left: -2rem;
+}
+
+.step1-input,
+.step1-textarea {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  background: #fafbff;
+  color: #232360;
+  outline: none;
+  transition: border 0.2s;
+  resize: vertical;
+  margin-left: -2rem;
+  margin-bottom: 1rem;
+  width: 33rem;
+}
+
+.step1-input:focus,
+.step1-textarea:focus {
+  border: 1.5px solid #6A4DF4;
+  background: #fff;
+}
+
+.step1-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.step1-prev-btn {
+  background: #fff;
+  color: #6A4DF4;
+  border: 1.5px solid #6A4DF4;
+  border-radius: 999px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s, color 0.2s;
+}
+
+.step1-next-btn:hover {
+  background-color: #6A4DF4;
+  color: #ffffff;
+}
+
+.step1-next-btn {
+  background: #fff;
+  color: #6A4DF4;
+  border: 1px solid #6A4DF4;
+  border-radius: 999px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  box-shadow: 0 4px 16px 0 #6a4df433;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-right: -1.5rem;
+}
+
+.step1-next-btn:disabled {
+  background: #d1c9f6;
+  cursor: not-allowed;
+}

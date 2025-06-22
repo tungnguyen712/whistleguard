@@ -1,12 +1,12 @@
 import './styles/Sidebar.css';
-import { UploadIcon, StatusIcon, StorageIcon, UserIcon } from '../../assets/icons';
+import { UploadIcon, StatusIcon, StorageIcon, ShieldIcon } from '../../assets/icons';
 import BurgerIcon from '../../assets/images/burger.svg';
 
 const Sidebar = () => {
   return (
     <div className="sidebar-container">
       <div className="sidebar-header">
-        {/* <img src="path/to/logo.png" alt="WhistleGuard Logo" className="sidebar-logo" /> */}
+        <ShieldIcon alt="WhistleGuard Logo" className="sidebar-logo" />
         <h1 className="sidebar-title">WhistleGuard</h1>
       </div>
       <ul className="sidebar-menu">

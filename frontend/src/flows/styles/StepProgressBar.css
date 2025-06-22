@@ -1,0 +1,74 @@
+.progressbar-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding: 0 1.5rem;
+}
+
+.progressbar-step {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.progressbar-circle {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #f4f4fb;
+  color: #6F6C90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 500;
+  z-index: 1;
+  transition: background 0.2s, color 0.2s;
+}
+
+.progressbar-circle.active {
+  background: #6246ea;
+  color: #fff;
+}
+
+.progressbar-bar {
+  height: 12px;
+  border-radius: 6px;
+  background: #f4f4fb;
+  flex: 1;
+  margin: 0 0.5rem;
+  position: relative;
+  min-width: 200px;
+  max-width: 500px;
+  transition: background 0.2s;
+  overflow: hidden;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.progressbar-bar.filled::before,
+.progressbar-bar.half::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  background: #6246ea;
+  border-radius: 6px;
+}
+
+.progressbar-bar.filled::before {
+  width: 100%;
+  right: 0;
+}
+
+.progressbar-bar.half::before {
+  width: 50%;
+}
+
+.progressbar-bar.filled {
+  background: #6246ea;
+}
+
+.progressbar-bar.half {
+  background: linear-gradient(to right, #6246ea 50%, #f4f4fb 50%);
+}

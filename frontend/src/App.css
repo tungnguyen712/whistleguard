@@ -40,3 +40,24 @@
 .read-the-docs {
   color: #888;
 }
+
+.page-with-sidebar {
+  display: flex;
+}
+
+.page-with-sidebar .submission-form-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #FAFBFF;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-content {
+  flex: 1;
+  padding: 2rem;
+}

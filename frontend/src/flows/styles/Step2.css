@@ -1,0 +1,153 @@
+.step-container {
+  text-align: center;
+  padding: 2rem;
+}
+
+.step2-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: black;
+  margin-bottom: -1rem;
+  margin-top: -2rem;
+  margin-left: -0.5rem;
+}
+
+.step2-desc {
+  color: #6F6C90;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  margin-left: -0.5rem;
+}
+
+.step2-container h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333333;
+  margin-top: 1rem;
+  margin-bottom: -1rem;
+}
+
+.step2-container p {
+  color: #6F6C90;
+  font-size: 0.9rem;
+  margin-bottom: 1.2rem;
+}
+
+.file-upload-area {
+  border: 2px dashed #1849D6;
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 1rem 0;
+  background-color: #F9F9FC;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.file-upload-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1849D6;
+}
+
+.file-drag-text {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.or-separator {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+.or-separator span {
+  color: grey;
+  font-weight: 500;
+  margin: 0 1rem;
+  white-space: nowrap;
+}
+
+.or-separator::before,
+.or-separator::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: #e0e0e0;
+  border-radius: 1px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.browse-files-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid #1849D6;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: #1849D6;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.browse-files-button:hover {
+  background-color: #1849D6;
+  color: #ffffff;
+}
+
+.uploaded-files-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.uploaded-file-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  background-color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.remove-file-button {
+  background: none;
+  border: none;
+  color: gray;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.remove-file-button:hover {
+  color: black;
+}
+
+.step-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.previous-button,
+.next-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #6A4DF4;
+  border-radius: 20px;
+  background-color: #ffffff;
+  color: #6A4DF4;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.previous-button:hover,
+.next-button:hover {
+  background-color: #6A4DF4;
+  color: #ffffff;
+}

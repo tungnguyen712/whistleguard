@@ -1,8 +1,9 @@
 import "./styles/Dashboard.css";
 import { useState } from 'react';
+import { useAuth } from "react-oidc-context";
 import { reports } from "../../mock/data";
 import BurgerIcon from '../../assets/images/burger.svg';
-import { UserIcon, FileIcon, SearchIcon } from '../../assets/icons';
+import { UserIcon, FileIcon, SearchIcon, SignOutIcon } from '../../assets/icons';
 
 const Dashboard = () => {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -11,15 +12,16 @@ const Dashboard = () => {
     setIsExpanded(!isExpanded);
     };
 
+    const auth = useAuth();
+
+    const handleSignOut = () => {
+        auth.removeUser();
+    }
+
     return (
     <div className="dashboard-container">
         <header className="dashboard-header">
             <h1 className="dashboard-title">Hello Org 👋,</h1>
-            {/* <div className="dashboard-user">
-                <img src={BurgerIcon} alt="Burger Icon" className="user-icon" />
-                <span className="user-name">Delicious Burger</span>
-                <span className="dropdown-arrow">▼</span>
-            </div> */}
 
             <div className="dashboard-footer">
                 {isExpanded && (
@@ -29,6 +31,12 @@ const Dashboard = () => {
                                 <UserIcon className="dashboard-icon" alt="User Icon" />
                                 Profile Page
                             </a>
+                        </li>
+                        <li>
+                            <button className="dashboard-expandable-item signout-button" onClick={handleSignOut}>
+                                <SignOutIcon className="dashboard-icon" alt="Sign Out Icon" />
+                                Sign Out
+                            </button>
                         </li>
                     </ul>
                 )}
@@ -66,7 +74,7 @@ const Dashboard = () => {
             <div className="reports-header">
                 <h2>All Reports</h2>
                 <div className="reports-actions">
-                <div class="search-container">
+                <div className="search-container">
                     <span className="search-icon">
                         <SearchIcon alt="Search Icon" />
                     </span>

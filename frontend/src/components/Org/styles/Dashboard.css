@@ -3,10 +3,12 @@ html, body {
 }
 
 .dashboard-container {
-  padding: 2rem;
+  padding: 1rem;
   background-color: #f9f9fc;
   height: 100vh;
-  width: 175vh;
+  width: 182%;
+  left: -24rem;
+  position: relative;
 }
 
 .dashboard-header {
@@ -130,19 +132,19 @@ html, body {
 }
 
 .search-container {
-  position: relative; /* Allows positioning of the search icon */
+  position: relative;
   justify-content: space-between;
   gap: 1rem;
-  width: 100%; /* Adjust width as needed */
+  width: 100%;
 }
 
 .search-icon {
-  position: absolute; /* Position the icon inside the container */
-  top: 14px; /* Center vertically */
-  left: 10px; /* Add space to the left */
-  transform: translateY(-50%); /* Adjust for perfect centering */
-  width: 16px; /* Icon width */
-  height: 16px; /* Icon height */
+  position: absolute;
+  top: 14px;
+  left: 10px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
 }
 
 .search-input {
@@ -214,13 +216,14 @@ html, body {
   padding: 0.5rem 1rem;
   border: 1px solid #e0e0e0;
   border-radius: 15px;
-  background-color: #F5F5F5;
+  background-color: white;
   cursor: pointer;
 }
 
 .page-button:hover {
-  background-color: gray;
+  background-color: lightgray;
   color: #ffffff;
+  border-color: white;
 }
 
 .dashboard-footer {
@@ -283,7 +286,7 @@ html, body {
 .dashboard-dropdown-arrow {
   font-size: 1rem;
   color: #6F6C90;
-  margin-left: 55px;
+  margin-left: 20px;
 }
 
 .dashboard-expandable-menu {
@@ -292,9 +295,9 @@ html, body {
   margin: 0;
   position: absolute;
   top: 200%;
-  left: 0;
-  height: 30px;
-  width: 90%;
+  left: 60px;
+  height: 60px;
+  width: 50%;
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: 15px;
@@ -313,5 +316,20 @@ html, body {
 }
 
 .dashboard-expandable-item:hover {
+  color: #4045EF;
+}
+
+.signout-button {
+  background: none;
+  border: none;
+  color: #6F6C90;
+  font-size: 1.05rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.signout-button:hover {
   color: #4045EF;
 }
