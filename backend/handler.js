@@ -17,6 +17,10 @@ const docClient = DynamoDBDocumentClient.from(client);
 
 app.use(express.json());
 
+const submitRouter = require("./routes/submit");
+app.use("/submit", submitRouter);
+
+
 app.get("/users/:userId", async (req, res) => {
   const params = {
     TableName: USERS_TABLE,

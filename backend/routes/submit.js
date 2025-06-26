@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const { v4: uuidv4 } = require('uuid');
 const categorize = require('../services/categorize');
 const reportService = require('../services/reportService');
@@ -36,3 +36,5 @@ router.post('/', async (req, res) => {
         return res.status(500).json({ error: 'Internal server error' });
     }
 }); 
+
+module.exports = router;
