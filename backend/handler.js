@@ -20,6 +20,11 @@ app.use(express.json());
 const submitRouter = require("./routes/submit");
 app.use("/submit", submitRouter);
 
+const trackRouter = require("./routes/track");
+app.use("/track", trackRouter);
+
+const prepareUploadRouter = require("./routes/prepare-upload");
+app.use("/prepare-upload", prepareUploadRouter);
 
 app.get("/users/:userId", async (req, res) => {
   const params = {

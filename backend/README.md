@@ -38,11 +38,11 @@ serverless deploy
 After running deploy, you should see output similar to:
 
 ```
-Deploying "aws-node-express-dynamodb-api" to stage "dev" (us-east-1)
+Deploying "aws-node-express-dynamodb-api" to stage "dev" (ap-southeast-1)
 
 ✔ Service deployed to stack aws-node-express-dynamodb-api-dev (109s)
 
-endpoint: ANY - https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com
+endpoint: ANY - https://xxxxxxxxxx.execute-api.ap-southeast-1.amazonaws.com
 functions:
   api: aws-node-express-dynamodb-api-dev-api (3.8 MB)
 ```
@@ -54,7 +54,7 @@ _Note_: In current form, after deployment, your API is public and can be invoked
 After successful deployment, you can create a new user by calling the corresponding endpoint:
 
 ```
-curl --request POST 'https://xxxxxx.execute-api.us-east-1.amazonaws.com/users' --header 'Content-Type: application/json' --data-raw '{"name": "John", "userId": "someUserId"}'
+curl --request POST 'https://xxxxxx.execute-api.ap-southeast-1.amazonaws.com/users' --header 'Content-Type: application/json' --data-raw '{"name": "John", "userId": "someUserId"}'
 ```
 
 Which should result in the following response:
@@ -66,7 +66,7 @@ Which should result in the following response:
 You can later retrieve the user by `userId` by calling the following endpoint:
 
 ```
-curl https://xxxxxxx.execute-api.us-east-1.amazonaws.com/users/someUserId
+curl https://xxxxxxx.execute-api.ap-southeast-1.amazonaws.com/users/someUserId
 ```
 
 Which should result in the following response:

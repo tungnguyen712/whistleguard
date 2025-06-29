@@ -24,10 +24,21 @@ provider:
             - dynamodb:PutItem
             - dynamodb:UpdateItem
             - dynamodb:DeleteItem
+            - s3:PutObject
           Resource:
             - Fn::GetAtt: [UsersTable, Arn]
+            - arn:aws:s3:::whistle-files/uploads/*
+        - Effect: Allow
+          Action:
+            - kms:Encrypt
+            - kms:GenerateDataKey
+          Resource: arn:aws:kms:ap-southeast-1:365152039398:key/ef7702ec-857b-4d7f-b160-7859aff9f534
   environment:
-    USERS_TABLE: ${param:tableName}
+    REPORTS_TABLE: whistle-reports
+    OPENAI_API_KEY: ${env:OPENAI_API_KEY}
+    AWS_REGION: ap-southeast-1
+    S3_BUCKET: whistleguard-files
+    KMS_KEY_ID: arn:aws:kms:ap-southeast-1:365152039398:key/ef7702ec-857b-4d7f-b160-7859aff9f534
 
 functions:
   api:
@@ -48,6 +59,18 @@ resources:
             KeyType: HASH
         BillingMode: PAY_PER_REQUEST
         TableName: ${param:tableName}
+
+    ReportsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: token
+            AttributeType: S
+        KeySchema:
+          - AttributeName: token
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: whistle-reports
 
 plugins:
   - serverless-offline
