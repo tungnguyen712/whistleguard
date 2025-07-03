@@ -76,6 +76,7 @@
   font-weight: bold;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
+  margin-top: 0.1rem;
 }
 
 .token-tracker-cancel-btn:hover {
@@ -87,4 +88,37 @@
     display: flex;
     margin-left: 1rem;
     margin-bottom: 1rem;
+}
+
+.tracker-row {
+  margin-bottom: 0.7rem;
+  margin-left: 1rem;
+  font-size: 1.05rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tracker-label {
+  font-weight: 600;
+  color: #6A4DF4;
+  min-width: 110px;
+  display: inline-block;
+}
+
+.tracker-value {
+  font-weight: 400;
+  color: #222;
+  word-break: break-word;
+}
+
+.tracker-error {
+  color: red;
+  margin-left: 1rem;
+}
+
+.token-tracker-action-buttons-2 {
+    display: flex;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
 }
