@@ -29,22 +29,26 @@ const TABLE_NAME = process.env.REPORTS_TABLE;
 async function createStub(token, fileKey) {
     const params = {
         TableName: TABLE_NAME,
-        Item: {
-            token,
-            fileKey,
-            status: 'uploading',
-            createdAt: new Date().toISOString(),
+        Key: { token},
+        UpdateExpression: 'SET #status = :status, #createdAt = if_not_exists(#createdAt, :createdAt), #files = list_append(if_not_exists(#files, :emptyList), :fileKey)',
+        ExpressionAttributeNames: {
+            '#status': 'status',
+            '#createdAt': 'createdAt',
+            '#files': 'files',
         },
-        ConditionExpression: 'attribute_not_exists(#token)',
-        ExpressionAttributeNames: {'#token':'token'}
+        ExpressionAttributeValues: {
+            ':status': 'uploading',
+            ':createdAt': new Date().toISOString(),
+            ':fileKey': [fileKey],
+            ':emptyList': [],
+        }
     }
     try {
-        await docClient.send(new PutCommand(params));
+        await docClient.send(new UpdateCommand(params));
     } catch (error) {
         console.error('Error creating stub:', error);
         throw new Error('Could not create stub');
     }
-    
 }
 
 async function updateReport(token, title, description, category) {
@@ -67,12 +71,27 @@ async function updateReport(token, title, description, category) {
         },
         ConditionExpression: 'attribute_exists(#token)',
     }
+    console.log("Updating report with params:", params);
 
     try {
         await docClient.send(new UpdateCommand(params));
     } catch (error) {
+        if (error.name === 'ConditionalCheckFailedException') {
+            // Fallback: create the item if it doesn't exist
+            const putParams = {
+                TableName: TABLE_NAME,
+                Item: {
+                    token,
+                    title,
+                    description,
+                    category,
+                    status: 'received',
+                    createdAt: new Date().toISOString(),
+                },
+            };
         console.error('Error updating report:', error);
         throw new Error('Could not update report');
+        }
     }
 }
 

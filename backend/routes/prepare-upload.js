@@ -7,19 +7,25 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
     try {
-        const { fileName } = req.body;
+        let { fileName, token } = req.body;
         if (!fileName) {
             return res.status(400).json({ error: 'File name is required' });
         }
 
-        const token = uuidv4();
+        if (!token) {
+            token = uuidv4();
+        }
+
+        const fileKey = `uploads/${token}/${Date.now()}_${fileName}`
         const uploadUrl = await getUploadUrl(token, fileName);
         await createStub(token, `uploads/${token}/${Date.now()}_${fileName}`);
 
         res.json({
             token,
-            uploadUrl
+            uploadUrl,
+            fileKey
         })
+        
     } catch (error) {
         console.error('Error preparing upload:', error);
         res.status(500).json({ error: 'Could not prepare upload' });

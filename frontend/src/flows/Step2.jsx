@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import "./styles/Step2.css";
 import { FileUploadIcon} from '../assets/icons';
+import { prepareUpload, uploadFile, submitReport } from '../api/report';
 
 function Step2({ data, next, previous}) {
     const [files, setFiles] = useState(data.files || []);
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleDrop = (e) => {
         e.preventDefault();
@@ -20,8 +22,53 @@ function Step2({ data, next, previous}) {
         setFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
     }
 
-    const handleNext = () => {
-        next({ files });
+    const handleSubmit = async () => {
+        setIsLoading(true);
+        try {
+            let reportToken = data.token || null;
+            const uploadedFileKeys = [];
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const { token, uploadUrl, fileKey } = await prepareUpload(file.name, reportToken);
+                
+                if (!reportToken) {
+                    reportToken = token;
+                }
+                
+                await uploadFile(uploadUrl, file);
+                uploadedFileKeys.push(fileKey || `uploads/${reportToken}/${Date.now()}_${file.name}`);
+            }
+            
+            console.log("Submitting report:", { token: reportToken, title: data.title, description: data.description });
+            const submitResult = await submitReport({
+                token: reportToken,
+                title: data.title,
+                description: data.description,
+            });
+            
+
+            next({ 
+                files,
+                token: reportToken, 
+                fileKeys: uploadedFileKeys,
+                submitResult,
+                submitError: null, 
+            });
+
+        } catch (error) {
+            console.log("Submit error:", error);
+            next({
+                files,
+                token: data.token,
+                fileKeys: [],
+                submitResult: null,
+                submitError: error.message
+            })
+        } finally {
+            setIsLoading(false);
+        }
+        
     }
 
     return (
@@ -65,7 +112,13 @@ function Step2({ data, next, previous}) {
 
             <div className="step-buttons">
                 <button className="previous-button" onClick={previous}>Previous step</button>
-                <button className="next-button" onClick={handleNext} disabled={files.length === 0}>Submit Report</button>
+                <button 
+                    className="next-button"
+                    onClick={handleSubmit} 
+                    disabled={files.length === 0 || isLoading}
+                >
+                    Submit Report
+                </button>
             </div>
         </div>
     )

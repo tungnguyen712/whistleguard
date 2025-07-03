@@ -6,6 +6,7 @@ const { updateReport } = require('../services/reportService');
 const router = express.Router();
 
 router.post('/', async (req, res) => {
+    console.log('--- /submit route hit ---');
     try {
         const { token, title, description } = req.body;
 
@@ -21,6 +22,7 @@ router.post('/', async (req, res) => {
         // categorize report using AI
         const category = await categorize(title);
 
+        console.log('Token: ', token);
         // save to dynamodb
         await updateReport(
             token,

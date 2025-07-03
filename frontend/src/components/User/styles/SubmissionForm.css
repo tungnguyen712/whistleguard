@@ -1,6 +1,7 @@
 .submission-form-container {
   display: flex;
   min-height: 100vh;
+  background-color: #FAFBFF;
 }
 
 .submission-form-content {
