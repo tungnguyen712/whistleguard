@@ -1,5 +1,6 @@
 import "./styles/Dashboard.css";
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from "react-oidc-context";
 import { reports } from "../../mock/data";
 import BurgerIcon from '../../assets/images/burger.svg';
@@ -7,6 +8,7 @@ import { UserIcon, FileIcon, SearchIcon, SignOutIcon } from '../../assets/icons'
 
 const Dashboard = () => {
     const [isExpanded, setIsExpanded] = useState(false);
+    const navigate = useNavigate();
 
     const toggleExpand = () => {
     setIsExpanded(!isExpanded);
@@ -16,6 +18,7 @@ const Dashboard = () => {
 
     const handleSignOut = () => {
         auth.removeUser();
+        navigate('/org/signin');
     }
 
     return (

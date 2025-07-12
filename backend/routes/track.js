@@ -11,6 +11,7 @@ router.get('/', async (req, res) => {
         if (!token) {
             return res.status(400).json({ error: "Token is required" });
         }
+        
         const report = await getReportByToken(token);
         if (!report) {
             return res.status(404).json({ error: "Report not found" });

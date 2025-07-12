@@ -37,7 +37,7 @@ async function createStub(token, fileKey) {
             '#files': 'files',
         },
         ExpressionAttributeValues: {
-            ':status': 'uploading',
+            ':status': 'Uploading',
             ':createdAt': new Date().toISOString(),
             ':fileKey': [fileKey],
             ':emptyList': [],
@@ -67,7 +67,7 @@ async function updateReport(token, title, description, category) {
             ":title": title,
             ":description": description,
             ":category": category,
-            ":status": 'received',
+            ":status": 'Received',
         },
         ConditionExpression: 'attribute_exists(#token)',
     }
@@ -85,7 +85,7 @@ async function updateReport(token, title, description, category) {
                     title,
                     description,
                     category,
-                    status: 'received',
+                    status: 'Received',
                     createdAt: new Date().toISOString(),
                 },
             };
@@ -106,7 +106,21 @@ async function getReportByToken(token) {
 
     try {
         const data = await docClient.send(new GetCommand(params));
-        return data.Item;
+        if (!data.Item) {
+            console.error('Report not found for token:', token);
+            throw new Error('Report not found');
+        }
+
+        const { title, description, category, status, createdAt } = data.Item;
+
+        return  {
+            title,
+            description,
+            category,
+            status,
+            createdAt
+        }
+
     } catch (error) {
         console.error('Error fetching report:', error);
         throw new Error('Could not fetch report');

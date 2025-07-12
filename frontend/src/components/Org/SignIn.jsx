@@ -1,22 +1,45 @@
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from "react-oidc-context";
+import { useState } from 'react';
+// import { useAuth } from "react-oidc-context";
 import './styles/SignIn.css';
 import BackgroundImage from "../../assets/images/bg.png";
-import GoogleLogo from "../../assets/images/google-logo.png";
+// import GoogleLogo from "../../assets/images/google-logo.png";
 import { MailIcon, LockIcon } from "../../assets/icons";
 
 const SignIn = () => {
     const navigate = useNavigate();
-    const handleSignIn = (e) => {
-        e.preventDefault();
-        localStorage.setItem("bypassAuth", true);
-        navigate('/org/dashboard');
-    }
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-    const auth = useAuth();
-    const handleGoogleSignIn = () => {
-        auth.signinRedirect();
-    }
+    const handleSignIn = async (e) => {
+        e.preventDefault();
+        
+        const res = await fetch("https://5fu4yvoafi.execute-api.ap-southeast-1.amazonaws.com/org/signin", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email,
+                password
+            })
+        });
+
+        if (res.ok) {
+            console.log("Sign in successful");
+            const data = await res.json();
+            localStorage.setItem('orgId', data.orgId);
+            navigate('/org/dashboard');
+        } else {
+            alert("Invalid email or password. Please try again.");
+            throw new Error("Sign in failed");
+        }
+    };
+
+    // const auth = useAuth();
+    // const handleGoogleSignIn = () => {
+    //     auth.signinRedirect();
+    // }
 
     // const handleSignUp = () => {
     //     navigate('/org/signup');
@@ -47,14 +70,30 @@ const SignIn = () => {
                         <label htmlFor="email">Email</label>
                         <div className="signin-input-container">
                             <MailIcon alt="Email Icon" className="signin-icon" />
-                            <input type="email" id="email" name="email" className="signin-input" placeholder="Enter your email" />
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                value={email} 
+                                onChange={(e) => setEmail(e.target.value)}
+                                className="signin-input" 
+                                placeholder="Enter your email" 
+                            />
                         </div>
                     
                         <label htmlFor="password">Password</label>
 
                         <div className="signin-input-container">
                             <LockIcon alt="Lock Icon" className="signin-icon" />
-                            <input type="password" id="password" name="password" className="signin-input" placeholder="Enter your password" />
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                className="signin-input" 
+                                placeholder="Enter your password" 
+                            />
                         </div>
                         
                         <a href="" target="_blank">Forgot Password</a>
@@ -63,7 +102,7 @@ const SignIn = () => {
 
                         <button type="submit" className="signin-button" onClick={handleSignIn}>Sign in</button>
 
-                        <div className="google-signin-container">
+                        {/* <div className="google-signin-container">
                             <span className="divider">
                                 <hr className="line" /> or <hr className="line" />
                             </span>
@@ -71,12 +110,20 @@ const SignIn = () => {
                                 <img src={GoogleLogo} alt="Google Logo" className="google-logo" />
                                 Sign in with Google
                             </button>
-                        </div>
+                        </div> */}
                     </form>
 
                     <div className="switch-signup">
                         <div className="signin-no-account">Don't have an account?</div>
-                        <a href="" target="_blank">Sign up</a>
+                        <a 
+                            href="" 
+                            onClick={e => {
+                                e.preventDefault();
+                                navigate('/org/signup');
+                            }}
+                        >
+                            Sign up
+                        </a>
                     </div>
                 </div>
             </div>

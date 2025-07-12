@@ -1,7 +1,8 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "react-oidc-context";
 import LandingPage from './components/Shared/LandingPage';
-import SignIn from "./components/Org/Signin";
+import SignIn from "./components/Org/SignIn";
+import SignUp from "./components/Org/SignUp";
 import SubmissionForm from "./components/User/SubmissionForm";
 import TokenTracker from "./components/User/TokenTracker";
 import Dashboard from "./components/Org/Dashboard";
@@ -59,6 +60,7 @@ function App() {
           </ProtectedRoute>
         }>
       </Route>
+      <Route path="/org/signup" element={<SignUp />}></Route>
     </Routes>
   )
 }

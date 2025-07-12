@@ -1,0 +1,269 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.signup-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    font-family: 'DM Sans', sans-serif;
+    justify-content: space-between;
+}
+
+.signup-right {
+  width: 120%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-left: 25rem;
+  margin-top: -4.5rem;
+}
+
+.signup-left { 
+    width: 70%;
+    display: flex;
+    margin-top: 20px;
+    left: -10rem;
+    color: white;
+    flex-direction: column;
+    padding: 2rem;
+    text-align: center;
+    height: 100%;
+    position: relative;
+    margin-left: 1rem;
+}
+
+.signup-background-image-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0rem;
+    width: 50%;
+    height: 100%;
+    opacity: 1;
+    overflow: hidden;
+    color: inherit;
+}
+
+.signup-background-image {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+}
+
+.signup-left h1 {
+    z-index: 1;
+    font-size: 6rem;
+    font-weight: 700;
+    text-align: left;
+}
+.signup-line-one {
+  font-size: 5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+.signup-line-two {
+  font-size: 5rem;
+  font-weight: 700;
+  color: #d9d9d9;
+}
+.signup-line-three {
+  font-size: 5rem;
+  font-weight: 700;
+  color: #b3b3b3;
+}
+.signup-line-four {
+    font-size: 5rem;
+    font-weight: 700;
+    color: #808080;
+}
+
+.signup-content-box {
+  text-align: left; 
+  max-width: 500px; 
+  margin-left: -13rem; /* adjust as needed for sign up */
+  display: flex;
+  flex-direction: column; 
+  gap: 1rem;
+}
+
+.signup-right h1 {
+    font-size: 2.5rem;
+    margin-top: 8rem;
+    color: #170F49;
+}   
+
+.signup-right p {
+    font-size: 1.125rem;
+    margin-top: -2rem;
+    margin-bottom: 1rem;
+    color: #6F6C90;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.signup-form label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: -0.5rem; 
+}
+
+.signup-input-container {
+  position: relative;
+  width: 100%; 
+  margin-bottom: -0.5rem;
+  min-height: 56px;
+}
+
+.signup-icon {
+  position: absolute;
+  top: 37%;
+  left: 1rem;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #899CC9;
+}
+
+.signup-input {
+  width: 35rem;
+  height: 30px;
+  padding: 0.8rem 1rem;
+  padding-left: 3.2rem;
+  font-size: 1rem;
+  border: 2px solid #899CC9;
+  border-radius: 50px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.signup-input:focus {
+  border-color: #6A4DF4;
+}
+
+.signup-multiselect-container {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  width: 39rem;
+  min-height: 56px;
+}
+
+.signup-multiselect {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.signup-multiselect-dropdown {
+  width: 100%;
+  padding: 0.8rem 3rem 0.8rem 3rem;
+  border-radius: 50px;
+  border: 2px solid #899CC9;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+  margin-bottom: 0;
+  height: 3.2rem;
+  box-sizing: border-box;
+  color: gray;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url("data:image/svg+xml;utf8,<svg fill='gray' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>") no-repeat right 1.5rem center/1.5rem 1.5rem;
+}
+
+.signup-multiselect-dropdown:focus {
+  border-color: #6A4DF4;
+}
+
+.signup-multiselect-dropdown:invalid {
+  color: gray;
+}
+
+.signup-icon {
+  position: absolute;
+  top: 1.75rem;
+  left: 1rem;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #899CC9;
+  pointer-events: none;
+}
+
+.signup-selected-types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.signup-type-tag {
+  background: #e6e6ff;
+  color: #4045EF;
+  border-radius: 20px;
+  padding: 0.3rem 1rem 0.3rem 0.8rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.signup-type-tag button {
+  background: none;
+  border: none;
+  color: #4045EF;
+  font-size: 1.1rem;
+  margin-left: 0.5rem;
+  margin-right: -1rem;
+  cursor: pointer;
+}
+
+.signup-other-type {
+  margin-top: 0.5rem;
+}
+
+.signup-button {
+  padding: 0.8rem 1.5rem;
+  width: 40rem;
+  height: 4rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: white;
+  background-color: #4045EF;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signup-button:hover {
+  background-color: #4045EF;
+}
+
+.signup-switch-signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  gap: 0.5rem; 
+  margin-left: 5rem;
+}
+
+.signup-no-account {
+  color: gray;
+}
+
+.signup-switch-signup a {
+  font-weight: 550;
+}

@@ -7,6 +7,7 @@
     "@aws-sdk/client-s3": "^3.835.0",
     "@aws-sdk/lib-dynamodb": "^3.835.0",
     "@aws-sdk/s3-request-presigner": "^3.839.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^4.21.2",
     "openai": "^5.7.0",

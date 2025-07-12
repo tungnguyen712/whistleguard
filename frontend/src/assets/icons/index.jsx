@@ -133,26 +133,38 @@ export const FileUploadIcon = ({ size = 24, className="" }) => (
 )
 
 export const SubmitSuccess = ({ size = 150, className="" }) => (
-<svg width={size} height={size} className={className} viewBox="0 0 158 144" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect opacity="0.5" x="14.0488" width="51.5427" height="51.5427" rx="10" fill="#9E96FF"/>
-<rect opacity="0.5" x="128" y="32.8701" width="29.3594" height="29.3594" rx="10" fill="#9E96FF"/>
-<rect opacity="0.5" y="74.8701" width="31.5329" height="31.5329" rx="8" fill="#DEDBFF"/>
-<rect opacity="0.5" x="114.287" y="106.821" width="36.5935" height="36.5935" rx="8" fill="#DEDBFF"/>
-<circle cx="83.4766" cy="78.3755" r="60" fill="#4A3AFF"/>
-<g filter="url(#filter0_d_1724_368)">
-<path d="M60.7598 80.1691L73.7403 93.0782L106.192 60.8055" stroke="white" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>
-</g>
-<defs>
-<filter id="filter0_d_1724_368" x="26.7598" y="30.8055" width="113.432" height="100.273" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-<feFlood floodOpacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="4"/>
-<feGaussianBlur stdDeviation="15"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.290196 0 0 0 0 0.227451 0 0 0 0 1 0 0 0 0.3 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1724_368"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1724_368" result="shape"/>
-</filter>
-</defs>
-</svg>
+    <svg width={size} height={size} className={className} viewBox="0 0 158 144" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect opacity="0.5" x="14.0488" width="51.5427" height="51.5427" rx="10" fill="#9E96FF"/>
+        <rect opacity="0.5" x="128" y="32.8701" width="29.3594" height="29.3594" rx="10" fill="#9E96FF"/>
+        <rect opacity="0.5" y="74.8701" width="31.5329" height="31.5329" rx="8" fill="#DEDBFF"/>
+        <rect opacity="0.5" x="114.287" y="106.821" width="36.5935" height="36.5935" rx="8" fill="#DEDBFF"/>
+        <circle cx="83.4766" cy="78.3755" r="60" fill="#4A3AFF"/>
+        <g filter="url(#filter0_d_1724_368)">
+            <path d="M60.7598 80.1691L73.7403 93.0782L106.192 60.8055" stroke="white" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>
+        </g>
+        <defs>
+            <filter id="filter0_d_1724_368" x="26.7598" y="30.8055" width="113.432" height="100.273" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dy="4"/>
+                <feGaussianBlur stdDeviation="15"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0.290196 0 0 0 0 0.227451 0 0 0 0 1 0 0 0 0.3 0"/>
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1724_368"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1724_368" result="shape"/>
+            </filter>
+        </defs>
+    </svg>
+)
 
+export const FilterIcon = ({ size = 24, className="" }) => (
+    <svg width={size} height={size} className={className} viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+        <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+        <g id="SVGRepo_iconCarrier"> 
+             <path fillRule="evenodd" clipRule="evenodd" d="M11.19 7.84996C11.6934 7.09341 11.5669 6.0823 10.8926 5.47312C10.2183 4.86394 9.19957 4.8404 8.49785 5.41779C7.79614 5.99517 7.62304 6.99935 8.09096 7.77835C8.55887 8.55735 9.52668 8.87624 10.366 8.52796C10.7014 8.38801 10.9881 8.15215 11.19 7.84996Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
+            <path fillRule="evenodd" clipRule="evenodd" d="M11.19 18.165C11.6934 17.4084 11.5669 16.3973 10.8926 15.7881C10.2183 15.1789 9.19957 15.1554 8.49785 15.7328C7.79614 16.3102 7.62304 17.3144 8.09096 18.0934C8.55887 18.8724 9.52668 19.1912 10.366 18.843C10.7014 18.703 10.9881 18.4672 11.19 18.165V18.165Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
+            <path fillRule="evenodd" clipRule="evenodd" d="M13.81 13.0069C13.3066 12.2504 13.4331 11.2393 14.1074 10.6301C14.7817 10.0209 15.8004 9.99738 16.5021 10.5748C17.2039 11.1522 17.377 12.1563 16.909 12.9353C16.4411 13.7143 15.4733 14.0332 14.634 13.6849C14.2986 13.545 14.0119 13.3091 13.81 13.0069V13.0069Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
+            <path d="M11.5 6.07593C11.0858 6.07593 10.75 6.41171 10.75 6.82593C10.75 7.24014 11.0858 7.57593 11.5 7.57593V6.07593ZM19.5 7.57593C19.9142 7.57593 20.25 7.24014 20.25 6.82593C20.25 6.41171 19.9142 6.07593 19.5 6.07593V7.57593ZM7.827 7.57593C8.24121 7.57593 8.577 7.24014 8.577 6.82593C8.577 6.41171 8.24121 6.07593 7.827 6.07593V7.57593ZM5.5 6.07593C5.08579 6.07593 4.75 6.41171 4.75 6.82593C4.75 7.24014 5.08579 7.57593 5.5 7.57593V6.07593ZM11.5 16.3919C11.0858 16.3919 10.75 16.7277 10.75 17.1419C10.75 17.5561 11.0858 17.8919 11.5 17.8919V16.3919ZM19.5 17.8919C19.9142 17.8919 20.25 17.5561 20.25 17.1419C20.25 16.7277 19.9142 16.3919 19.5 16.3919V17.8919ZM7.827 17.8919C8.24121 17.8919 8.577 17.5561 8.577 17.1419C8.577 16.7277 8.24121 16.3919 7.827 16.3919V17.8919ZM5.5 16.3919C5.08579 16.3919 4.75 16.7277 4.75 17.1419C4.75 17.5561 5.08579 17.8919 5.5 17.8919V16.3919ZM13.5 12.7339C13.9142 12.7339 14.25 12.3981 14.25 11.9839C14.25 11.5697 13.9142 11.2339 13.5 11.2339V12.7339ZM5.5 11.2339C5.08579 11.2339 4.75 11.5697 4.75 11.9839C4.75 12.3981 5.08579 12.7339 5.5 12.7339V11.2339ZM17.173 11.2339C16.7588 11.2339 16.423 11.5697 16.423 11.9839C16.423 12.3981 16.7588 12.7339 17.173 12.7339V11.2339ZM19.5 12.7339C19.9142 12.7339 20.25 12.3981 20.25 11.9839C20.25 11.5697 19.9142 11.2339 19.5 11.2339V12.7339ZM11.5 7.57593H19.5V6.07593H11.5V7.57593ZM7.827 6.07593H5.5V7.57593H7.827V6.07593ZM11.5 17.8919H19.5V16.3919H11.5V17.8919ZM7.827 16.3919H5.5V17.8919H7.827V16.3919ZM13.5 11.2339H5.5V12.7339H13.5V11.2339ZM17.173 12.7339H19.5V11.2339H17.173V12.7339Z" fill="currentColor" stroke="currentColor" strokeWidth="1"></path>
+        </g>
+    </svg>
 )
