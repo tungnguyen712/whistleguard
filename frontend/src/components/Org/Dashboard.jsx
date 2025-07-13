@@ -6,9 +6,12 @@ import { useAuth } from "react-oidc-context";
 import BurgerIcon from '../../assets/images/burger.svg';
 import { UserIcon, FileIcon, SearchIcon, SignOutIcon } from '../../assets/icons';
 
+const REPORTS_PER_PAGE = 6;
+
 const Dashboard = () => {
     const [reports, setReports] = useState([]);
     const [isExpanded, setIsExpanded] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
     const navigate = useNavigate();
 
     const orgId = localStorage.getItem('orgId');
@@ -23,6 +26,12 @@ const Dashboard = () => {
         }
         fetchReports();
     }, [orgId]);
+
+    const totalPages = Math.ceil(reports.length / REPORTS_PER_PAGE);
+    const paginatedReports = reports.slice(
+        (currentPage - 1) * REPORTS_PER_PAGE,
+        currentPage * REPORTS_PER_PAGE
+    );
 
     const toggleExpand = () => {
     setIsExpanded(!isExpanded);
@@ -86,7 +95,7 @@ const Dashboard = () => {
                     <p>Total Reports Received</p>
                     <span className="summary-change positive">+10.0%</span>
                     </div>
-                    <h2>856</h2>
+                    <h2>{reports.length}</h2>
                     <h3>Reports</h3>
                 </div>
 
@@ -95,7 +104,7 @@ const Dashboard = () => {
                     <p>Total Reports Resolved</p>
                     <span className="summary-change negative">-7.0%</span>
                     </div>
-                    <h2>412</h2>
+                    <h2>0</h2>
                     <h3>Reports</h3>
                 </div>
             </div>
@@ -128,7 +137,7 @@ const Dashboard = () => {
                         </tr>
                     </thead>
                     <tbody>
-                    {reports.map((report) => (
+                    {paginatedReports.map((report) => (
                         <tr key={report.token}>
                             <td>{report.createdAt ? report.createdAt.slice(0,10) : ""}</td>
                             <td>{report.category}</td>
@@ -147,11 +156,16 @@ const Dashboard = () => {
                     </tbody>
                 </table>
                 <div className="pagination">
-                    <button className="page-button">1</button>
-                    <button className="page-button">2</button>
-                    <button className="page-button">3</button>
-                    <span>...</span>
-                    <button className="page-button">5</button>
+                    {[...Array(totalPages)].map((_, idx) => (
+                        <button
+                            key={idx + 1}
+                            className="page-button"
+                            onClick={() => setCurrentPage(idx + 1)}
+                            style={{ fontWeight: currentPage === idx + 1 ? 'bold' : 'normal' }}
+                        >
+                            {idx + 1}
+                        </button>
+                    ))}
                 </div>
             </main>
         </div>

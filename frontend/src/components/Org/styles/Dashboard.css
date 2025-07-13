@@ -9,6 +9,7 @@ html, body {
   width: 182%;
   left: -24rem;
   position: relative;
+  box-sizing: border-box;
 }
 
 .dashboard-header {
