@@ -1,18 +1,44 @@
 import "./styles/Dashboard.css";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from "react-oidc-context";
-import { reports } from "../../mock/data";
+// import { reports } from "../../mock/data";
 import BurgerIcon from '../../assets/images/burger.svg';
 import { UserIcon, FileIcon, SearchIcon, SignOutIcon } from '../../assets/icons';
 
 const Dashboard = () => {
+    const [reports, setReports] = useState([]);
     const [isExpanded, setIsExpanded] = useState(false);
     const navigate = useNavigate();
+
+    const orgId = localStorage.getItem('orgId');
+
+    useEffect(() => {
+        async function fetchReports() {
+            const res = await fetch(`https://5fu4yvoafi.execute-api.ap-southeast-1.amazonaws.com/org/reports?orgId=${orgId}`);
+            if (res.ok) {
+                const data = await res.json();
+                setReports(data);
+            }
+        }
+        fetchReports();
+    }, [orgId]);
 
     const toggleExpand = () => {
     setIsExpanded(!isExpanded);
     };
+
+    const handleDownload = async (report) => {
+        for (const fileKey of report.files) {
+            const res = await fetch(`https://5fu4yvoafi.execute-api.ap-southeast-1.amazonaws.com/org/report-file?fileKey=${fileKey}`);
+            if (!res.ok) {
+                const { url } = await res.json();
+                window.open(url, '_blank');
+            } else {
+                alert("Unable to download file");
+            }
+        }
+    }
 
     const auth = useAuth();
 
@@ -103,19 +129,19 @@ const Dashboard = () => {
                     </thead>
                     <tbody>
                     {reports.map((report) => (
-                        <tr key={report.id}>
-                        <td>{report.dateReceived}</td>
-                        <td>{report.category}</td>
-                        <td>{report.title}</td>
-                        <td>{report.description}</td>
-                        <td>
-                            <FileIcon alt="File Icon" />
-                        </td>
-                        <td>
-                            <span className={`status ${report.status.toLowerCase().replace(" ", "-")}`}>
-                            {report.status}
-                            </span>
-                        </td>
+                        <tr key={report.token}>
+                            <td>{report.createdAt ? report.createdAt.slice(0,10) : ""}</td>
+                            <td>{report.category}</td>
+                            <td>{report.title}</td>
+                            <td>{report.description}</td>
+                            <td>
+                                <FileIcon alt="File Icon" onClick={() => handleDownload(report)} style={{ cursor: 'pointer'}} />
+                            </td>
+                            <td>
+                                <span className={`status ${report.status.toLowerCase().replace(" ", "-")}`}>
+                                {report.status}
+                                </span>
+                            </td>
                         </tr>
                     ))}
                     </tbody>

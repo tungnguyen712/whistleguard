@@ -1,30 +1,7 @@
-const { PutCommand, GetCommand, UpdateCommand } = require('@aws-sdk/lib-dynamodb');
+const { ScanCommand, GetCommand, UpdateCommand } = require('@aws-sdk/lib-dynamodb');
 const docClient = require('../utils/dynamoClient');
+const { TableAlreadyExistsException } = require('@aws-sdk/client-dynamodb');
 const TABLE_NAME = process.env.REPORTS_TABLE;
-
-// async function createReport(data) {
-//     const { token, title, description, category } = data;
-//     const params = {
-//         TableName: TABLE_NAME,
-//         Item: {
-//             token,
-//             title,
-//             description,
-//             category,
-//             status: 'received',
-//             createdAt: new Date().toISOString(),
-//         },
-//     }
-
-//     console.log("Saved report:", params.Item);
-
-//     try {
-//         await docClient.send(new PutCommand(params));
-//     } catch (error) {
-//         console.error('Error creating report:', error);
-//         throw new Error('Could not create report');
-//     }
-// }
 
 async function createStub(token, fileKey) {
     const params = {
@@ -127,8 +104,22 @@ async function getReportByToken(token) {
     }
 }
 
+async function getAllReports() {
+    const params = {
+        TableName: TABLE_NAME
+    };
+    try {
+        const data = await docClient.send(new ScanCommand(params));
+        return data.Items || [];
+    } catch (error) {
+        console.error("Error fetching all reports:", error);
+        throw new Error("Could not fetch reports");
+    }
+}
+
 module.exports = {
     createStub,
     updateReport,
     getReportByToken,
+    getAllReports
 }

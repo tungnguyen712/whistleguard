@@ -1,6 +1,9 @@
 const express = require('express');
 const { v4: uuidv4 } = require('uuid');
-const { saveOrganization, getOrganizationsByType, getOrganizationByEmail } = require("../services/orgService");
+const { saveOrganization, getOrganizationByEmail, getOrganizationById } = require("../services/orgService");
+const { getAllReports } = require("../services/reportService");
+const { getDownloadUrl } = require("../utils/s3");
+const { categoryRoute } = require("../services/categorize");
 
 const router = express.Router();
 
@@ -53,24 +56,6 @@ router.post('/signup', async (req, res) => {
     }
 });
 
-// GET /org/by-type?type=Environmental NGO
-router.get("/by-type", async (req, res) => {
-    const { type } = req.query;
-    if (!type) {
-        return res.status(400).json({ error: "Type is required" });
-    }
-    try {
-        const orgs = await getOrganizationsByType(type);
-        if (orgs.length === 0) {
-            return res.status(404).json({ error: "No organizations found for this type" });
-        }
-        res.json(orgs);
-    } catch (error) {
-        res.status(500).json({ error: "Failed to fetch organizations" });
-        console.error('Error in /org/by-type route:', error);
-    }
-});
-
 router.post('/signin', async (req, res) => {
     const { email, password } = req.body;
     console.log('Received email and password');
@@ -93,5 +78,51 @@ router.post('/signin', async (req, res) => {
         res.status(500).json({ error: "Failed to sign in" });
     }
 })
+
+router.get('/reports', async (req, res) => {
+    const { orgId } = req.query;
+    if (!orgId) {
+        return res.status(400).json({ error: "Organization ID is required" });
+    }
+
+    try {
+        const org = await getOrganizationById(orgId);
+        if (!org) {
+            return res.status(404).json({ error: "Organization not found" });
+        }
+
+        const reports = await getAllReports();
+
+        const categoryMap = {};
+        categoryRoute.forEach(category => categoryMap[category.name] = category.routeTo);
+
+        const filteredReports = reports.filter(report => {
+            const mappedOrgType = categoryMap[report.category];
+            return org.orgTypes.includes(mappedOrgType);
+        });
+
+        res.status(200).json(filteredReports);
+
+    } catch (error) {
+        console.error('Error in /org/reports route:', error);
+        res.status(500).json({ error: "Failed to fetch reports" });
+    }
+});
+
+router.get('/report-file', async (req, res) => {
+    const { fileKey } = req.query;
+    if (!fileKey) {
+        return res.status(400).json({ error: "File key is required" });
+    }
+    console.log('Received file key:', fileKey);
+
+    try {
+        const url = await getDownloadUrl(fileKey);
+        res.status(200).json({ url });
+    } catch (error) {
+        console.log('Error in /org/report-file route:', error);
+        res.status(500).json({ error: "Failed to get file download URL" });
+    }
+});
 
 module.exports = router;

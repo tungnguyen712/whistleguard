@@ -1,5 +1,4 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { useAuth } from "react-oidc-context";
 import LandingPage from './components/Shared/LandingPage';
 import SignIn from "./components/Org/SignIn";
 import SignUp from "./components/Org/SignUp";
@@ -8,26 +7,15 @@ import TokenTracker from "./components/User/TokenTracker";
 import Dashboard from "./components/Org/Dashboard";
 import Sidebar from "./components/User/Sidebar";
 import "./App.css";
-// import { Token } from "aws-sdk";
 
 function App() {
-  const auth = useAuth();
-
-  if (auth.isLoading) {
-    return <div className="app-loading">Loading...</div>;
-  }
-
-  if (auth.error) {
-    return <div className="app-error">Encountering error... {auth.error.message}</div>;
-  }
-
   const ProtectedRoute = ({ children }) => {
-  const bypassAuth = localStorage.getItem("bypassAuth");
+    const orgId = localStorage.getItem('orgId');
 
-    if (!auth.isAuthenticated && !bypassAuth) {
+    if (!orgId) {
       return <Navigate to="/org/signin" replace />;
     }
-    return children;  
+    return children;
   }
 
   return (
