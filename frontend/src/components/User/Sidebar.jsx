@@ -1,6 +1,5 @@
 import './styles/Sidebar.css';
-import { UploadIcon, StatusIcon, StorageIcon, ShieldIcon } from '../../assets/icons';
-import BurgerIcon from '../../assets/images/burger.svg';
+import { UploadIcon, StatusIcon, HomeIcon, ShieldIcon } from '../../assets/icons';
 
 const Sidebar = () => {
   return (
@@ -20,6 +19,13 @@ const Sidebar = () => {
           <a href="/user/report-status" className="sidebar-item">
             <StatusIcon alt="Status Icon" className="sidebar-icon" />
             Report Status
+            {/* <span className="sidebar-arrow">›</span> */}
+          </a>
+        </li>
+        <li>
+          <a href="/" className="sidebar-item">
+            <HomeIcon alt="Home Icon" className="sidebar-icon" />
+            Home Page
             {/* <span className="sidebar-arrow">›</span> */}
           </a>
         </li>

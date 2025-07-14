@@ -76,7 +76,7 @@ function Step2({ data, next, previous}) {
             <h2 className="step2-title">Incident Report Form</h2>
             <p className="step2-desc">Feel free to share us your story anonymously...</p>
 
-            <h3>Proof Upload</h3>
+            <h3>Proof Upload <span style={{color: "red"}}>*</span></h3>
             <p>Upload your documents here, and you can upload up to 10 files max</p>
             <div 
                 className="file-upload-area"

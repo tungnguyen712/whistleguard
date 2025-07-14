@@ -51,10 +51,10 @@ html, body {
 }
 
 .signin-left h1 {
-    z-index: 1;
-    font-size: 6rem;
-    font-weight: 700;
-    text-align: left;
+  z-index: 1;
+  font-size: 6rem;
+  font-weight: 700;
+  text-align: left;
 }
 .signin-line-one {
   font-size: 5rem;
@@ -90,35 +90,41 @@ html, body {
   gap: 1rem;
 }
 
+.back-to-home-link {
+  margin-top: 7rem;
+  color: grey;
+  cursor: pointer;
+}
+
 .signin-right h1 {
-    font-size: 2.5rem;
-    margin-top: 8rem;
-    color: #170F49;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  color: #170F49;
 }   
 
 .signin-right h2 {
-    font-size: 1.5rem;
-    color: #170F49;
-    font-weight: bold;
+  font-size: 1.5rem;
+  color: #170F49;
+  font-weight: bold;
 }
 .signin-right p {
-    font-size: 1.125rem;
-    margin-top: -2rem;
-    margin-bottom: 2rem;
-    color: #6F6C90;
+  font-size: 1.125rem;
+  margin-top: -2rem;
+  margin-bottom: 2rem;
+  color: #6F6C90;
 }
 
 .signin-subtext {
-    font-weight: 500;
-    margin: 2rem 0;
-    /* font-size: 1.25rem; */
-    margin-top: 0;
+  font-weight: 500;
+  margin: 2rem 0;
+  /* font-size: 1.25rem; */
+  margin-top: 0;
 }
 .signin-caption {
-    font-size: 1.25rem;
-    margin-top: -2.5rem;
-    margin-bottom: 3rem;
-    color: #6F6C90;
+  font-size: 1.25rem;
+  margin-top: -2.5rem;
+  margin-bottom: 3rem;
+  color: #6F6C90;
 }
 
 .button-group {

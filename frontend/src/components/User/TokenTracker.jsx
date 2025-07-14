@@ -92,7 +92,7 @@ function TokenTracker() {
             <div className="tracker-row"><span className="tracker-label">Category:</span> <span className="tracker-value">{report.category}</span></div>
             <div className="tracker-row"><span className="tracker-label">Status:</span> <span className="tracker-value">{report.status}</span></div>
             <div className="tracker-row">
-              <span className="tracker-label">Submitted At:</span>{" "}
+              <span className="tracker-label">Submitted at:</span>{" "}
               <span className="tracker-value">
                 {report.createdAt ? new Date(report.createdAt).toLocaleString() : "N/A"}
               </span>

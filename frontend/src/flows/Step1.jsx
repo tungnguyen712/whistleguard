@@ -19,7 +19,7 @@ function Step1({ data, next, previous }) {
             <p className="step1-desc">Feel free to share us your story anonymously...</p>
 
             <div className="step1-field-group">
-                <label htmlFor="title" className="step1-label">Title</label>
+                <label htmlFor="title" className="step1-label">Title <span style={{color: "red"}}>*</span></label>
                 <input 
                     type="text"
                     id="title"

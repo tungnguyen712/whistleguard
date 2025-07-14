@@ -5,6 +5,7 @@ import './styles/SignIn.css';
 import BackgroundImage from "../../assets/images/bg.png";
 // import GoogleLogo from "../../assets/images/google-logo.png";
 import { MailIcon, LockIcon } from "../../assets/icons";
+import { Link } from 'react-router-dom';
 
 const SignIn = () => {
     const navigate = useNavigate();
@@ -64,10 +65,12 @@ const SignIn = () => {
     
             <div className="signin-right">
                 <div className="signin-content-box">
+                    <Link to="/" className="back-to-home-link">← Back to Home</Link>
+
                     <h1>Welcome Back</h1>
                     <p>Sign in to your account</p>
                     <form className="signin-form">
-                        <label htmlFor="email">Email</label>
+                        <label htmlFor="email">Email <span style={{color: "red"}}>*</span> </label>
                         <div className="signin-input-container">
                             <MailIcon alt="Email Icon" className="signin-icon" />
                             <input 
@@ -81,7 +84,7 @@ const SignIn = () => {
                             />
                         </div>
                     
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password">Password <span style={{color: "red"}}>*</span></label>
 
                         <div className="signin-input-container">
                             <LockIcon alt="Lock Icon" className="signin-icon" />
